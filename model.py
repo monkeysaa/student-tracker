@@ -11,6 +11,24 @@ app = Flask(__name__)
 db = SQLAlchemy()
 
 
+class Student(db.Model):
+    """A student."""
+
+    __tablename__ = 'students'
+
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    first_name = db.Column(db.String)
+    last_name = db.Column(db.String)
+    grade = db.Column(db.Integer)
+    reading_level = db.Column(db.String)
+    # prefixes - A list of prefixes for this student to practice
+    # suffixes - A list of suffixes for this student to practice
+
+
+    def __repr__(self):
+        return f'<Student f_name={self.first_name} l_name={self.last_name}>'
+
+
 def connect_to_db(app):
     """Connect the database to our Flask app."""
 
@@ -19,20 +37,14 @@ def connect_to_db(app):
     db.app = app
     db.init_app(app)
 
-def get_student_by_first_name(first_name):
-    """Given a first name, print info about the matching student."""
+    print('Connected to the db!')
 
-    QUERY = """
-        SELECT first_name, last_name, reading_level
-        FROM students
-        WHERE first_name = :first_name
-        """
-    
-        db_cursor = db.session.execute(QUERY, {'github': github})
 
-    row = db_cursor.fetchone()
+if __name__ == '__main__':
+    from server import app
 
-    print(f"Student: {row[0]} {row[1]}\nReading level: {row[2]}")
+    # Call connect_to_db(app, echo=False) if your program output gets
+    # too annoying; this will tell SQLAlchemy not to print out every
+    # query it executes.
 
-    return row
-
+    connect_to_db(app)
