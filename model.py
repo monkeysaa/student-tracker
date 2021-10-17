@@ -35,3 +35,4 @@ def get_student_by_first_name(first_name):
     print(f"Student: {row[0]} {row[1]}\nReading level: {row[2]}")
 
     return row
+
