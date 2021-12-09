@@ -55,7 +55,10 @@ CREATE TABLE public.students (
     first_name character varying(30),
     last_name character varying(30),
     grade integer,
-    reading_level character varying(10)
+    root_level character varying(10),
+        -- Root: CVC ("bat"), CCVC / CVCC, CCVCC
+    prefixes boolean,
+    suffixes boolean
 );
 
 

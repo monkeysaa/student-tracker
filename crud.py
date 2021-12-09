@@ -1,10 +1,10 @@
 """CRUD operations."""
 
-from model import db, User, Movie, Rating, connect_to_db
+from model import db, Student, connect_to_db
 
 
 def create_student(first_name, last_name, grade, reading_level):
-    """Create and return a new user."""
+    """Create and return a new student."""
 
     student = Student(first_name=first_name, last_name=last_name, grade=grade,
                       reading_level=reading_level)
