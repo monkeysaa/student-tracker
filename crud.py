@@ -3,7 +3,7 @@
 from model import db, Student, connect_to_db
 
 
-def create_student(first_name, last_name, grade):
+def create_student(first_name, last_name, grade=None):
     """Create and return a new student."""
 
     student = get_student_by_name(first_name, last_name)
@@ -55,7 +55,7 @@ def update_student(id, f_name, l_name, grade, lvl=None):
 
 def remove_student(first_name, last_name):
     """Remove a student object from the database."""
-    
+
     student = get_student_by_name(first_name, last_name) 
 
     if student:

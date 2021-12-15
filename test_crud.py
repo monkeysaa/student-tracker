@@ -32,7 +32,8 @@ class TestStudentCreation(unittest.TestCase):
         student = create_student('Test', 'Student', 3)
         update_student(student.id, 'Test', 'Student', 99)
 
-        self.assertEqual(student.grade, 99)
+        self.assertEqual(get_student_by_id(student.id).grade, 99)
+
 
     def test_removal(self):
         """Confirms that remove_student deletes student object from db."""
