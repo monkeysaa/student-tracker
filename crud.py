@@ -3,6 +3,10 @@
 from model import db, Student, connect_to_db
 
 
+##############################
+### STUDENT CRUD FUNCTIONS ###
+##############################
+
 def create_student(first_name, last_name, grade=None):
     """Create and return a new student."""
 
@@ -68,6 +72,88 @@ def remove_student(first_name, last_name):
     else:
         return "No such student exists"
     
+
+##############################
+### VOWEL CRUD FUNCTIONS ###
+##############################
+
+def create_vowel(chars, level, origin=None):
+    """Create and return a new vowel."""
+
+    vowel = Vowel(chars=chars, level=level, origin=origin)
+
+    db.session.add(vowel)
+    db.session.commit()
+
+    return vowel
+
+
+def get_vowel(chars):
+    """Retrieve vowel object."""
+    
+    return Vowel.query.filter(Vowel.chars.like(chars).first()
+
+
+def get_all_vowels():
+    """Return full list of vowel-objects."""
+    
+    return Student.query.all()
+
+
+##############################
+### CONSONANT CRUD FUNCTIONS ###
+##############################
+
+def create_consonant(chars, level, hardsoft=False, location=0, blends=False):
+    """Create and return a new consonant."""
+
+    consonant = Consonant(chars=chars, level=level, hardsoft=hardsoft,
+                          location=location, blends=blends)
+
+    db.session.add(consonant)
+    db.session.commit()
+
+    return consonant
+
+
+def get_consonant(chars):
+    """Retrieve consonant object."""
+    
+    return Consonant.query.filter(Consonant.chars.like(chars).first()
+
+
+def get_all_consonants():
+    """Return full list of consonant-objects."""
+    
+    return Consonant.query.all()
+
+
+##############################
+### AFFIX CRUD FUNCTIONS ###
+##############################
+
+def create_affix(affix, prefix):
+    """Create and return a new consonant."""
+
+    affix = Affix(affix=affix, prefix=prefix)
+
+    db.session.add(affix)
+    db.session.commit()
+
+    return affix
+
+
+def get_affix(affix):
+    """Retrieve affix object by name."""
+    
+    return Affix.query.filter(Consonant.affix.like(affix).first()
+
+
+def get_all_affixes():
+    """Return full list of affix-objects."""
+    
+    return Consonant.query.all()
+
 
 if __name__ == '__main__':
     from server import app
