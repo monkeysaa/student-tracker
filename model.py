@@ -1,6 +1,7 @@
-"""Pseudowords
+#!/usr/bin/env python3.6
+"""Pseudowords Model
 
-The front-end for a database that allows users to track students' decoding 
+The model for a database that allows users to track students' decoding 
 progress, and to create pseudoword sets catered to their reading levels.
 """
 
@@ -22,6 +23,7 @@ class Student(db.Model):
     grade = db.Column(db.Integer)
     v_level = db.Column(db.Integer) # 1. short, 2. v+e, 3. both, 4. 2vgw, 5. 1-4 mix, 6. sliders, 7. 1-6 mix, 8. gh
     c_level = db.Column(db.Integer) 
+    a_level = db.Column(db.Boolean)
 
     # affixes - Associated prefixes and suffixes 
     # vowels - Associated vowels

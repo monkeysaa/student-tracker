@@ -91,7 +91,7 @@ def create_vowel(chars, level, origin=None):
 def get_vowel(chars):
     """Retrieve vowel object."""
     
-    return Vowel.query.filter(Vowel.chars.like(chars).first()
+    return Vowel.query.filter(Vowel.chars.like(chars)).first()
 
 
 def get_all_vowels():
@@ -119,7 +119,7 @@ def create_consonant(chars, level, hardsoft=False, location=0, blends=False):
 def get_consonant(chars):
     """Retrieve consonant object."""
     
-    return Consonant.query.filter(Consonant.chars.like(chars).first()
+    return Consonant.query.filter(Consonant.chars.like(chars)).first()
 
 
 def get_all_consonants():
@@ -146,7 +146,7 @@ def create_affix(affix, prefix):
 def get_affix(affix):
     """Retrieve affix object by name."""
     
-    return Affix.query.filter(Consonant.affix.like(affix).first()
+    return Affix.query.filter(Consonant.affix.like(affix)).first()
 
 
 def get_all_affixes():
