@@ -3,54 +3,63 @@
 from model import db, Student, connect_to_db
 
 
-def create_student(first_name, last_name, grade, reading_level):
+def create_student(first_name, last_name, grade):
     """Create and return a new student."""
 
-    student = Student(first_name=first_name, last_name=last_name, grade=grade,
-                      reading_level=reading_level)
+    student = get_student_by_name(first_name, last_name)
+    if not student:
+        student = Student(first_name=first_name, 
+                          last_name=last_name, 
+                          grade=grade)
 
-    db.session.add(student)
-    db.session.commit()
+        db.session.add(student)
+        db.session.commit()
 
-    return student
+        return student
+    
+    else:
+        return 'Error: Student name already exists.' 
 
-
-def get_student_by_name(first_name, last_name):
-
-    return student
-
-def get_student_by_name(first_name, last_name):
-    """Given a student's name, print info about the matching student."""
-
-    QUERY = """
-        SELECT first_name, last_name, grade, reading_level
-        FROM students
-        WHERE first_name = :first_name
-        """
-
-    db_cursor = db.session.execute(QUERY, {'first_name': first_name})
-
-    row = db_cursor.fetchone()
-
-    print(f"Student: {row[0]} {row[1]}\nGrade: {row[2]}")
-
-    return row
-
-
-def update_student(first_name, last_name, grade, reading_level):
+def update_student(id, f_name, l_name, grade, lvl):
     """Update a new user."""
 
-    # student = Student(first_name=first_name, last_name=last_name, grade=grade,
-    #                   reading_level=reading_level)
+    student = get_student_by_id(id)
+    print('Implement updating feature')
 
-    # db.session.add(student)
+    student.first_name = f_name
+    student.last_name = l_name
+    student.grade = grade
+    student.reading_level = lvl
+
     db.session.commit()
 
     return student
 
-def delete_student(first_name, last_name):
+def get_student_by_name(f_name, l_name):
+    """Retrieve student object by first and last name."""
+    
+    return Student.query.filter(Student.first_name.like(f_name), Student.last_name.like(l_name)).first()
 
-    return None
+def get_all_students():
+    
+    return Student.query.all()
+
+def get_student_by_id(id):
+    return Student.query.filter_by(id=id).first()
+
+def remove_student(first_name, last_name):
+    student = get_student_by_name(first_name, last_name) 
+
+    if student:
+        Student.query.filter_by(id=student.id).delete()
+        if not get_student_by_name(first_name, last_name):
+            db.session.commit()
+            return "Success"
+        else:
+            return "Error"
+    else:
+        return "No such student exists"
+    
 
 if __name__ == '__main__':
     from server import app

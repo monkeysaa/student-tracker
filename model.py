@@ -26,7 +26,7 @@ class Student(db.Model):
 
 
     def __repr__(self):
-        return f'<Student f_name={self.first_name} l_name={self.last_name}>'
+        return f'<Student {self.id}: {self.first_name} {self.last_name}>'
 
 
 def connect_to_db(app):
