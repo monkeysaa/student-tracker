@@ -20,7 +20,7 @@ def create_student(first_name, last_name, grade):
     else:
         return 'Error: Student name already exists.' 
 
-def update_student(id, f_name, l_name, grade, lvl):
+def update_student(id, f_name, l_name, grade, lvl=None):
     """Update a new user."""
 
     student = get_student_by_id(id)
