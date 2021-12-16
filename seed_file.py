@@ -28,8 +28,8 @@ for student in student_data:
     db_student = crud.create_student(first_name, last_name, grade)
 
 # Load vowel data from JSON file
-with open('data/seed_vowels.json') as f2:
-    vowel_data = json.loads(f2.read())
+with open('data/seed_vowels.json') as f:
+    vowel_data = json.loads(f.read())
 
 # Create and store vowels
 vowels_in_db = []
@@ -59,11 +59,11 @@ for vowel in vowel_data:
     vowels_in_db.append(db_vowel)
 
 # Load consonant data from JSON file
-with open('data/seed_consonants.json') as f3:
-    cons_data = json.loads(f3.read())
+with open('data/seed_consonants.json') as f:
+    cons_data = json.loads(f.read())
 
 for c in cons_data:
-    chars, complex_c, location, blends, blocker = (
+    chars, complex_c, location, blend, blocker = (
         c['chars'],
         c['complex_c'],
         c['location'],

@@ -100,12 +100,23 @@ def get_all_vowels():
     
     return Student.query.all()
 
+def update_vowel(chars, **kwargs): 
+    """Update a user's information."""
+
+    vowel = get_vowel(chars)
+    for key, value in kwargs.items():
+        setattr(vowel, key, value)
+
+    db.session.commit()
+
+    return student
+
 
 ##############################
 ### CONSONANT CRUD FUNCTIONS ###
 ##############################
 
-def create_consonant(chars, complex_c, location, blends, blocker):
+def create_consonant(chars, complex_c, location, blend, blocker):
     """Create and return a new consonant."""
 
     consonant = Consonant(chars=chars, complex_c=complex_c,
@@ -154,6 +165,18 @@ def get_all_consonants():
     return Consonant.query.all()
 
 
+def update_vowel(chars, **kwargs):
+    """Update a user's information."""
+
+    vowel = get_vowel(chars)
+    for key, value in kwargs.items():
+        setattr(vowel, key, value)
+
+    db.session.commit()
+
+    return vowel
+
+
 ##############################
 ### AFFIX CRUD FUNCTIONS ###
 ##############################
@@ -179,6 +202,18 @@ def get_all_affixes():
     """Return full list of affix-objects."""
     
     return Consonant.query.all()
+
+
+def update_vowel(chars, **kwargs): 
+    """Update a user's information."""
+
+    vowel = get_vowel(chars)
+    for key, value in kwargs.items():
+        setattr(vowel, key, value)
+
+    db.session.commit()
+
+    return vowel
 
 
 if __name__ == '__main__':
