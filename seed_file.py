@@ -36,20 +36,20 @@ vowels_in_db = []
 
 """
 Vowel Level ENUMs: 
-0 = Extremes (ee, oo, o)
-1 = Short (a, e, i, u)
-2 = Final E (structure tbd)
-3 = 2VGW (ai, oa, ea)
-4 = Other long (ay, ie, oe, ue, ow)
-5 = Sliders (ow, ou, oi, oy)
-6 = Alternates (aw, au, ew, eu)
-7 = Sneaky gh (igh, ough, augh)
+    0 = Extremes (ee, oo, o)
+    1 = Short (a, e, i, u)
+    2 = Final E (structure tbd)
+    3 = 2VGW (ai, oa, ea)
+    4 = Other long (ay, ie, oe, ue, ow)
+    5 = Sliders (ow, ou, oi, oy)
+    6 = Alternates (aw, au, ew, eu)
+    7 = GH (igh, ough, augh)
 
 Vowel Origin ENUMs:
-null = not yet assigned
-0 = Old English
-1 = Latin
-2 = Greek
+    null = not yet assigned
+    0 = Old English
+    1 = Latin
+    2 = Greek
 """
 
 for vowel in vowel_data:

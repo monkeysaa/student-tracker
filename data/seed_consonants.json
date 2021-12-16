@@ -1,84 +1,422 @@
 [
     {
         "chars": "b",
-        "hardsoft": 0,
+        "complex_c": 0,
         "location": null,
-        "blend": false
+        "blend": false,
+        "blocker": false
+    },
+    {
+        "chars": "bl",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },  
+    {
+        "chars": "br",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
     },
     {
         "chars": "c",
-        "hardsoft": 1,
-        "location": null,
-        "blend": false
-    },    {
+        "complex_c": 1,
+        "location": 0,
+        "blend": false,
+        "blocker": false
+    },  
+    {
+        "chars": "cl",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },  
+    {
+        "chars": "cr",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },  
+    {
+        "chars": "ch",
+        "complex_c": 1,
+        "location": 0,
+        "blend": false,
+        "blocker": false
+    }, 
+    {
+        "chars": "ck",
+        "complex_c": 0,
+        "location": 1,
+        "blend": false,
+        "blocker": true
+    },  
+    {
         "chars": "d",
-        "hardsoft": 0,
+        "complex_c": 0,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "dge",
+        "complex_c": 1,
+        "location": 1,
+        "blend": false,
+        "blocker": true
+    },
+    {
+        "chars": "dr",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    }, 
+    {
+        "chars": "dw",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    }, 
+    {
+        "chars": "f",
+        "complex_c": 0,
+        "location": 0,
+        "blend": false,
+        "blocker": false
+    },   
+    {
+        "chars": "fl",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    }, 
+    {
+        "chars": "ff",
+        "complex_c": 0,
+        "location": 1,
+        "blend": false,
+        "blocker": true
+    },    
+    {
+        "chars": "fr",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },  
+    {
+        "chars": "g",
+        "complex_c": 1,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "ge",
+        "complex_c": 1,
+        "location": 1,
+        "blend": false,
+        "blocker": false
+    }, 
+    {
+        "chars": "gl",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },  
+    {
+        "chars": "gr",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    }, 
+    {
+        "chars": "h",
+        "complex_c": 0,
+        "location": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "j",
+        "complex_c": 0,
+        "location": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "l",
+        "complex_c": 0,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "ll",
+        "complex_c": 0,
+        "location": 1,
+        "blend": false,
+        "blocker": true
+    },  
+    {
+        "chars": "m",
+        "complex_c": 0,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "n",
+        "complex_c": 0,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "ng",
+        "complex_c": 1,
+        "location": 1,
+        "blend": false,
+        "blocker": false
+    },
+    {
+        "chars": "p",
+        "complex_c": 0,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "pl",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },  
+    {
+        "chars": "pr",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    }, 
+    {
+        "chars": "qu",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },    
+    {
+        "chars": "r",
+        "complex_c": 0,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "s",
+        "complex_c": 0,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "sc",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },  
+    {
+        "chars": "scr",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "sh",
+        "complex_c": 1,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },    
+    {
+        "chars": "sk",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "sl",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "sm",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "sn",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "sp",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "spr",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "squ",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "ss",
+        "complex_c": 0,
+        "location": 1,
+        "blend": false,
+        "blocker": true
+    },   
+    {
+        "chars": "st",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },    
+    {
+        "chars": "str",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "sw",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "t",
+        "complex_c": 0,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
+        "blend": false,
+        "blocker": false
+    },
+    {
+        "chars": "tr",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "th",
+        "complex_c": 1,
         "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
-        "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
-        "location": null,
-        "blend": false
-    },    {
-        "chars": "",
-        "hardsoft": 0,
-        "location": null,
-        "blend": false
+        "blend": false,
+        "blocker": false
+    },   
+    {
+        "chars": "thr",
+        "complex_c": 1,
+        "location": 1,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "tw",
+        "complex_c": 0,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },   
+    {
+        "chars": "v",
+        "complex_c": 0,
+        "location": 0,
+        "blend": false,
+        "blocker": false
+    },
+    {
+        "chars": "ve",
+        "complex_c": 0,
+        "location": 1,
+        "blend": false,
+        "blocker": false
+    },
+    {
+        "chars": "w",
+        "complex_c": 0,
+        "location": 0,
+        "blend": false,
+        "blocker": false
+    },
+    {
+        "chars": "wh",
+        "complex_c": 1,
+        "location": 1,
+        "blend": false,
+        "blocker": false
+    },
+    {
+        "chars": "wr",
+        "complex_c": 1,
+        "location": 0,
+        "blend": true,
+        "blocker": false
+    },
+    {
+        "chars": "x",
+        "complex_c": 0,
+        "location": 1,
+        "blend": true,
+        "blocker": true
+    },
+    {
+        "chars": "z",
+        "complex_c": 0,
+        "location": 0,
+        "blend": false,
+        "blocker": false
+    },
+    {
+        "chars": "zz",
+        "complex_c": 0,
+        "location": 1,
+        "blend": false,
+        "blocker": true
     },
 ]

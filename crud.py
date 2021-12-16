@@ -104,13 +104,22 @@ def get_all_vowels():
 ### CONSONANT CRUD FUNCTIONS ###
 ##############################
 
-def create_consonant(chars, level, hardsoft=False, location=0, blends=False):
+def create_consonant(chars, level, hardsoft, location, blends, blocker):
     """Create and return a new consonant."""
 
-    consonant = Consonant(chars=chars, level=level, hardsoft=hardsoft,
-                          location=location, blends=blends)
+    consonant = Consonant(chars=chars, complex_c=complex_c,
+                          location=location, blend=blend, blocker=blocker)
 
     db.session.add(consonant)
+    level = -1
+    if blend: 
+        if location == 0:
+            level = 3
+        else: 
+            level = 4
+    if not blend:
+        if not complex_c:
+        
     db.session.commit()
 
     return consonant
