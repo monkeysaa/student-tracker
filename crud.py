@@ -1,6 +1,6 @@
 """CRUD operations."""
 
-from model import db, Student, connect_to_db
+from model import db, Student, Vowel, Consonant, connect_to_db
 
 
 ##############################

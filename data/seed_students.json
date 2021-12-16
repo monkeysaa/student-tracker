@@ -1,0 +1,37 @@
+[
+    {
+        "first_name": "Mark",
+        "last_name": "Park",
+        "grade": 4
+    },
+    {
+        "first_name": "Ava",
+        "last_name": "Mol",
+        "grade": 3
+    },
+    {
+        "first_name": "Matt",
+        "last_name": "Grito",
+        "grade": 5
+    },
+    {
+        "first_name": "Syd",
+        "last_name": "Sharisse",
+        "grade": 5
+    },
+    {
+        "first_name": "Ava",
+        "last_name": "Mendez",
+        "grade": 3
+    },
+    {
+        "first_name": "Mark P",
+        "last_name": "Simon",
+        "grade": 6
+    },
+    {
+        "first_name": "Simon",
+        "last_name": "Wonder",
+        "grade": 2
+    }
+]

@@ -1,0 +1,132 @@
+[
+    {
+        "char": "ee",
+        "level": 0,
+        "origin": null
+    },
+    {
+        "char": "oo",
+        "level": 0,
+        "origin": null
+    },
+    {
+        "char": "o",
+        "level": 0,
+        "origin": null
+    },
+    {
+        "char": "a",
+        "level": 1,
+        "origin": null
+    },
+    {
+        "char": "e",
+        "level": 1,
+        "origin": null
+    },
+    {
+        "char": "i",
+        "level": 1,
+        "origin": null
+    },
+    {
+        "char": "u",
+        "level": 1,
+        "origin": null
+    },
+    {
+        "char": "ai",
+        "level": 3,
+        "origin": 0
+    },
+    {
+        "char": "oa",
+        "level": 3,
+        "origin": 0
+    },
+    {
+        "char": "ea",
+        "level": 3,
+        "origin": 0
+    },
+    {
+        "char": "ay",
+        "level": 4,
+        "origin": 0
+    },
+    {
+        "char": "oe",
+        "level": 4,
+        "origin": 0
+    },
+    {
+        "char": "ie",
+        "level": 4,
+        "origin": 0
+    },
+    {
+        "char": "ue",
+        "level": 4,
+        "origin": 0
+    },
+    {
+        "char": "ow",
+        "level": 4,
+        "origin": 0
+    },
+    {
+        "char": "ow",
+        "level": 5,
+        "origin": 0
+    },
+    {
+        "char": "ou",
+        "level": 5,
+        "origin": null
+    },
+    {
+        "char": "oi",
+        "level": 5,
+        "origin": null
+    },
+    {
+        "char": "oy",
+        "level": 5,
+        "origin": null
+    },
+    {
+        "char": "aw",
+        "level": 6,
+        "origin": 0
+    },
+    {
+        "char": "au",
+        "level": 6,
+        "origin": 2
+    },
+    {
+        "char": "ew",
+        "level": 6,
+        "origin": 0
+    },
+    {
+        "char": "eu",
+        "level": 6,
+        "origin": 2
+    },
+    {
+        "char": "igh",
+        "level": 7,
+        "origin": 0
+    },
+    {
+        "char": "augh",
+        "level": 7,
+        "origin": 0
+    },
+    {
+        "char": "ough",
+        "level": 7,
+        "origin": 0
+    }
+]

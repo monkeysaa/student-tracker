@@ -144,10 +144,10 @@ Attempted consonant sequence
 """
 
 
-def connect_to_db(app):
+def connect_to_db(app, db_uri='postgresql:///student-tracker'):
     """Connect the database to our Flask app."""
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///student-tracker'
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app
     db.init_app(app)
@@ -162,4 +162,4 @@ if __name__ == '__main__':
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
 
-    connect_to_db(app)
+    connect_to_db(app, 'postgresql:///student-tracker')
