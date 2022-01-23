@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 """CRUD operations."""
 
 from model import db, Student, Vowel, Consonant, connect_to_db
@@ -104,21 +105,37 @@ def get_all_vowels():
 ### CONSONANT CRUD FUNCTIONS ###
 ##############################
 
-def create_consonant(chars, level, hardsoft, location, blends, blocker):
+def create_consonant(chars, complex_c, location, blends, blocker):
     """Create and return a new consonant."""
 
     consonant = Consonant(chars=chars, complex_c=complex_c,
                           location=location, blend=blend, blocker=blocker)
 
     db.session.add(consonant)
-    level = -1
+    level = None
+    """
+        Consonant Level ENUMs: 
+            0 = no blockers, no blends, no complex_c
+            1 = no blends, no complex_c
+            2 = no blends
+            3 = initial blends 
+            4 = final blends 
+    """
+
     if blend: 
         if location == 0:
             level = 3
         else: 
             level = 4
-    if not blend:
-        if not complex_c:
+
+    else: 
+        if complex_c:
+            level = 2
+        elif blocker:
+            level = 1
+        else:
+            level = 0
+    consonant.level = level
         
     db.session.commit()
 

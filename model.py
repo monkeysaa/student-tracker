@@ -38,10 +38,10 @@ class Vowel(db.Model):
     
     Vowel Level ENUMs: 
         0 = Extremes (ee, oo, o)
-        1 = Short (a, e, i, u)
+        1 = Short Vowels (a, e, i, u)
         2 = Final E (structure tbd)
         3 = 2VGW (ai, oa, ea)
-        4 = Other long (ay, ie, oe, ue, ow)
+        4 = Other Long (ay, ie, oe, ue, ow)
         5 = Sliders (ow, ou, oi, oy)
         6 = Alternates (aw, au, ew, eu)
         7 = GH (igh, ough, augh)

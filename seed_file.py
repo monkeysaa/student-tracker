@@ -58,4 +58,19 @@ for vowel in vowel_data:
     db_vowel = crud.create_vowel(char, level, origin)
     vowels_in_db.append(db_vowel)
 
+# Load consonant data from JSON file
+with open('data/seed_consonants.json') as f3:
+    cons_data = json.loads(f3.read())
+
+for c in cons_data:
+    chars, complex_c, location, blends, blocker = (
+        c['chars'],
+        c['complex_c'],
+        c['location'],
+        c['blend'],
+        c['blocker']
+    )
+
+    db_cons = crud.create_consonant(chars, complex_c, location, blend, blocker)
+
 model.db.session.commit()

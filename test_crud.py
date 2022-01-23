@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 """CRUD testing."""
 
 from crud import *

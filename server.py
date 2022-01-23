@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 """Server for pseudowords app."""
 
 from flask import Flask
