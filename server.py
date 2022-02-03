@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 """Server for pseudowords app."""
 
-from crud_files import crud
+from crud_files import crud, vowel_crud, affix_crud, consonant_crud, student_crud
 from flask import Flask, render_template, request, session, redirect, jsonify
 from models.model import connect_to_db
 import pprint
@@ -15,12 +15,12 @@ app = Flask(__name__)
 def homepage():
     """Show homepage."""
 
-    vowels = crud.get_all_vowels()
-    consonants = crud.get_all_consonants()
+    vowels = vowel_crud.get_all_vowels()
+    consonants = consonant_crud.get_all_consonants()
 
     vowel = random.choice(vowels).chars
-    beg_cons = random.choice(crud.get_consonants_by_location(0))
-    end_cons = random.choice(crud.get_consonants_by_location(None))
+    beg_cons = random.choice(consonant_crud.get_consonants_by_location(0))
+    end_cons = random.choice(consonant_crud.get_consonants_by_location(None))
 
     word = "" + beg_cons.chars + vowel + end_cons.chars
     # print(word)
@@ -32,7 +32,7 @@ def homepage():
 def all_vowels():
     """View all vowels."""
 
-    vowels = crud.get_all_vowels()
+    vowels = vowel_crud.get_all_vowels()
 
     return render_template('vowels.html', vowels=vowels)
 
@@ -41,7 +41,7 @@ def all_vowels():
 def all_cons():
     """View all consonants."""
 
-    consonants = crud.get_all_consonants()
+    consonants = consonant_crud.get_all_consonants()
 
     return render_template('consonants.html', consonants=consonants)
 
