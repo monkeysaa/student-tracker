@@ -3,7 +3,7 @@
 
 from crud_files import crud
 from flask import Flask, render_template, request, session, redirect, jsonify
-from model_files.model import connect_to_db
+from models.model import connect_to_db
 import pprint
 import random
 from services import word_gen
