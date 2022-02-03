@@ -8,7 +8,7 @@
 from crud_files import crud
 import random
 
-class Word_Generator(cons_level, vowel_level, word_level):
+class Word_Generator():
     """Creates a word or pseudoword based on the parameters passed.
 
     Complex_c:
@@ -37,16 +37,17 @@ class Word_Generator(cons_level, vowel_level, word_level):
         4 = final blends
     """
 
-    # Default = CVC
-    vowels = vowel_crud.get_all_vowels()
-    consonants = consonant_crud.get_all_consonants()
+    def __init__(self, cons_level, vowel_level, word_level):
 
-    vowel = random.choice(vowels).chars
-    beg_cons = random.choice(consonant_crud.get_consonants_by_location(0))
-    end_cons = random.choice(consonant_crud.get_consonants_by_location(1))
+        # Default = CVC
+        vowels = vowel_crud.get_all_vowels()
+        consonants = consonant_crud.get_all_consonants()
 
-    word = "" + beg_cons.chars + vowel + end_cons.chars
-    print(word)
+        vowel = random.choice(vowels).chars
+        beg_cons = random.choice(consonant_crud.get_consonants_by_location(0))
+        end_cons = random.choice(consonant_crud.get_consonants_by_location(1))
+
+        word = "" + beg_cons.chars + vowel + end_cons.chars
 
     def __repr__(self):
         return f"{self.word}"
