@@ -1,8 +1,10 @@
 #!/usr/bin/env python3.6
 """CRUD operations."""
 
-from models.model import connect_to_db, Consonant, db, Student
+from models.model import connect_to_db, db
 from models.vowel_model import Vowel
+from models.consonant_model import Consonant
+from models.student_model import Student
 
 
 ##############################

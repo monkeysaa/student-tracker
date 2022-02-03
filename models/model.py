@@ -7,31 +7,34 @@ progress, and to create pseudoword sets catered to their reading levels.
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from models.vowel_model import Vowel
 
 app = Flask(__name__)
 db = SQLAlchemy()
 
+# located below db definition, since models require db to exist already
+from models.vowel_model import Vowel
+from models.student_model import Student
+from models.consonant_model import Consonant
 
-class Student(db.Model):
-    """A student."""
+# class Student(db.Model):
+#     """A student."""
 
-    __tablename__ = 'students'
+#     __tablename__ = 'students'
 
-    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    first_name = db.Column(db.String, nullable=False)
-    last_name = db.Column(db.String, nullable=False)
-    grade = db.Column(db.Integer)
-    v_level = db.Column(db.Integer) # 1. short, 2. v+e, 3. both, 4. 2vgw, 5. 1-4 mix, 6. sliders, 7. 1-6 mix, 8. gh
-    c_level = db.Column(db.Integer)
-    a_level = db.Column(db.Boolean)
+#     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+#     first_name = db.Column(db.String, nullable=False)
+#     last_name = db.Column(db.String, nullable=False)
+#     grade = db.Column(db.Integer)
+#     v_level = db.Column(db.Integer) # 1. short, 2. v+e, 3. both, 4. 2vgw, 5. 1-4 mix, 6. sliders, 7. 1-6 mix, 8. gh
+#     c_level = db.Column(db.Integer)
+#     a_level = db.Column(db.Boolean)
 
-    # affixes - Associated prefixes and suffixes
-    # vowels - Associated vowels
-    # consonants - Associated consonants? or consonant-levels?
+#     # affixes - Associated prefixes and suffixes
+#     # vowels - Associated vowels
+#     # consonants - Associated consonants? or consonant-levels?
 
-    def __repr__(self):
-        return f'<Student {self.id}: {self.first_name} {self.last_name}>'
+#     def __repr__(self):
+#         return f'<Student {self.id}: {self.first_name} {self.last_name}>'
 
 
 # class Vowel(db.Model):
@@ -65,47 +68,47 @@ class Student(db.Model):
 #         return f'<Vowel {self.chars}>'
 
 
-class Consonant(db.Model):
-    """A consonant or consonant blend.
+# class Consonant(db.Model):
+#     """A consonant or consonant blend.
 
-    Complex_c:
-    - c and g - which vary depending on whether they're followed by e, i, or y
-    - two-letter consonant digraphs such as sh, ch, th, wh, and ng
+#     Complex_c:
+#     - c and g - which vary depending on whether they're followed by e, i, or y
+#     - two-letter consonant digraphs such as sh, ch, th, wh, and ng
 
-    Location ENUMs:
-        null (default) = not specified
-        0 = beginning of word
-        1 = end of word
+#     Location ENUMs:
+#         null (default) = not specified
+#         0 = beginning of word
+#         1 = end of word
 
-    Blend:
-        False (default) = consonant stands alone
-        True = consonant characters form a blend
+#     Blend:
+#         False (default) = consonant stands alone
+#         True = consonant characters form a blend
 
 
-    Blocker
-        False (default) = no limitation of vowels
-        True = only paired with short vowels.
+#     Blocker
+#         False (default) = no limitation of vowels
+#         True = only paired with short vowels.
 
-    Consonant Level ENUMs:
-        0 = no blockers, no blends, no complex_c
-        1 = no blends, no complex_c
-        2 = no blends
-        3 = initial blends
-        4 = final blends
-    """
+#     Consonant Level ENUMs:
+#         0 = no blockers, no blends, no complex_c
+#         1 = no blends, no complex_c
+#         2 = no blends
+#         3 = initial blends
+#         4 = final blends
+#     """
 
-    __tablename__ = 'consonants'
+#     __tablename__ = 'consonants'
 
-    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    chars = db.Column(db.String(3), nullable=False)
-    complex_c = db.Column(db.Boolean, nullable=False)
-    location = db.Column(db.Integer) # None = N/A, 0 = beginning, 1 = end
-    blend = db.Column(db.Boolean, nullable=False)
-    blocker = db.Column(db.Boolean, nullable=False)
-    level = db.Column(db.Integer)
+#     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+#     chars = db.Column(db.String(3), nullable=False)
+#     complex_c = db.Column(db.Boolean, nullable=False)
+#     location = db.Column(db.Integer) # None = N/A, 0 = beginning, 1 = end
+#     blend = db.Column(db.Boolean, nullable=False)
+#     blocker = db.Column(db.Boolean, nullable=False)
+#     level = db.Column(db.Integer)
 
-    def __repr__(self):
-        return f'<Cons {self.chars}>'
+#     def __repr__(self):
+#         return f'<Cons {self.chars}>'
 
 
 class Affix(db.Model):
