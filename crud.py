@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 """CRUD operations."""
 
-from model import db, Student, Vowel, Consonant, connect_to_db
+from model import connect_to_db, Consonant, db, Student, Vowel
 
 
 ##############################
@@ -13,28 +13,28 @@ def create_student(first_name, last_name, grade=None):
 
     student = get_student_by_name(first_name, last_name)
     if not student:
-        student = Student(first_name=first_name, 
-                          last_name=last_name, 
+        student = Student(first_name=first_name,
+                          last_name=last_name,
                           grade=grade)
 
         db.session.add(student)
         db.session.commit()
 
         return student
-    
+
     else:
-        return 'Error: Student name already exists.' 
+        return 'Error: Student name already exists.'
 
 
 def get_student_by_name(f_name, l_name):
     """Retrieve student object by first and last name."""
-    
+
     return Student.query.filter(Student.first_name.like(f_name), Student.last_name.like(l_name)).first()
 
 
 def get_all_students():
     """Return full list of student-objects."""
-    
+
     return Student.query.all()
 
 
@@ -61,7 +61,7 @@ def update_student(id, f_name, l_name, grade, lvl=None):
 def remove_student(first_name, last_name):
     """Remove a student object from the database."""
 
-    student = get_student_by_name(first_name, last_name) 
+    student = get_student_by_name(first_name, last_name)
 
     if student:
         Student.query.filter_by(id=student.id).delete()
@@ -72,7 +72,7 @@ def remove_student(first_name, last_name):
             return "Error"
     else:
         return "No such student exists"
-    
+
 
 ##############################
 ### VOWEL CRUD FUNCTIONS ###
@@ -91,18 +91,18 @@ def create_vowel(chars, level, origin=None):
 
 def get_vowel(chars):
     """Retrieve vowel object."""
-    
+
     return Vowel.query.filter(Vowel.chars.like(chars)).first()
 
 
 def get_all_vowels():
     """Return full list of vowel-objects."""
-    
+
     return Vowel.query.all()
 
 def get_vowels_by_level(level):
     """Return partial list of vowel-objects."""
-    
+
     return Vowel.query.filter(Vowel.level==level).all()
 
 
@@ -119,21 +119,21 @@ def create_consonant(chars, complex_c, location, blend, blocker):
     db.session.add(consonant)
     level = None
     """
-        Consonant Level ENUMs: 
+        Consonant Level ENUMs:
             0 = no blockers, no blends, no complex_c
             1 = no blends, no complex_c
             2 = no blends
-            3 = initial blends 
-            4 = final blends 
+            3 = initial blends
+            4 = final blends
     """
 
-    if blend: 
+    if blend:
         if location == 0:
             level = 3
-        else: 
+        else:
             level = 4
 
-    else: 
+    else:
         if complex_c:
             level = 2
         elif blocker:
@@ -141,7 +141,7 @@ def create_consonant(chars, complex_c, location, blend, blocker):
         else:
             level = 0
     consonant.level = level
-        
+
     db.session.commit()
 
     return consonant
@@ -149,18 +149,18 @@ def create_consonant(chars, complex_c, location, blend, blocker):
 
 def get_consonant(chars):
     """Retrieve consonant object."""
-    
+
     return Consonant.query.filter(Consonant.chars.like(chars)).first()
 
 
 def get_all_consonants():
     """Return full list of consonant-objects."""
-    
+
     return Consonant.query.all()
 
 def get_consonants_by_location(loc):
     """Return partial list of consonant-objects."""
-    
+
     return Consonant.query.filter(Consonant.location==loc).all()
 
 
@@ -182,13 +182,13 @@ def create_affix(affix, prefix):
 
 def get_affix(affix):
     """Retrieve affix object by name."""
-    
+
     return Affix.query.filter(Consonant.affix.like(affix)).first()
 
 
 def get_all_affixes():
     """Return full list of affix-objects."""
-    
+
     return Affix.query.all()
 
 
