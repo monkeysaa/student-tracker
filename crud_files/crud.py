@@ -165,6 +165,7 @@ def get_consonants_by_location(loc):
 
 
 
+
 ##############################
 ### AFFIX CRUD FUNCTIONS ###
 ##############################

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3.6
 """Server for pseudowords app."""
 
-import crud
+from crud_files import crud
 from flask import Flask, render_template, request, session, redirect, jsonify
 from model import connect_to_db
 import pprint
 import random
+from services import word_gen
 
 app = Flask(__name__)
 
@@ -19,10 +20,10 @@ def homepage():
 
     vowel = random.choice(vowels).chars
     beg_cons = random.choice(crud.get_consonants_by_location(0))
-    end_cons = random.choice(crud.get_consonants_by_location(1))
+    end_cons = random.choice(crud.get_consonants_by_location(None))
 
-    word = "" + beg_cons.chars + vowel + end_cons.chars 
-    print(word)
+    word = "" + beg_cons.chars + vowel + end_cons.chars
+    # print(word)
 
     return render_template('homepage.html', word=word)
 

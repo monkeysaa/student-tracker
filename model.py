@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 """Pseudowords Model
 
-The model for a database that allows users to track students' decoding 
+The model for a database that allows users to track students' decoding
 progress, and to create pseudoword sets catered to their reading levels.
 """
 
@@ -22,12 +22,12 @@ class Student(db.Model):
     last_name = db.Column(db.String, nullable=False)
     grade = db.Column(db.Integer)
     v_level = db.Column(db.Integer) # 1. short, 2. v+e, 3. both, 4. 2vgw, 5. 1-4 mix, 6. sliders, 7. 1-6 mix, 8. gh
-    c_level = db.Column(db.Integer) 
+    c_level = db.Column(db.Integer)
     a_level = db.Column(db.Boolean)
 
-    # affixes - Associated prefixes and suffixes 
+    # affixes - Associated prefixes and suffixes
     # vowels - Associated vowels
-    # consonants - Associated consonants? or consonant-levels? 
+    # consonants - Associated consonants? or consonant-levels?
 
     def __repr__(self):
         return f'<Student {self.id}: {self.first_name} {self.last_name}>'
@@ -35,8 +35,8 @@ class Student(db.Model):
 
 class Vowel(db.Model):
     """A vowel sound.
-    
-    Vowel Level ENUMs: 
+
+    Vowel Level ENUMs:
         0 = Extremes (ee, oo, o)
         1 = Short Vowels (a, e, i, u)
         2 = Final E (structure tbd)
@@ -66,8 +66,8 @@ class Vowel(db.Model):
 
 class Consonant(db.Model):
     """A consonant or consonant blend.
-    
-    Complex_c: 
+
+    Complex_c:
     - c and g - which vary depending on whether they're followed by e, i, or y
     - two-letter consonant digraphs such as sh, ch, th, wh, and ng
 
@@ -75,7 +75,7 @@ class Consonant(db.Model):
         null (default) = not specified
         0 = beginning of word
         1 = end of word
-    
+
     Blend:
         False (default) = consonant stands alone
         True = consonant characters form a blend
@@ -83,14 +83,14 @@ class Consonant(db.Model):
 
     Blocker
         False (default) = no limitation of vowels
-        True = only paired with short vowels. 
-    
-    Consonant Level ENUMs: 
+        True = only paired with short vowels.
+
+    Consonant Level ENUMs:
         0 = no blockers, no blends, no complex_c
         1 = no blends, no complex_c
         2 = no blends
-        3 = initial blends 
-        4 = final blends 
+        3 = initial blends
+        4 = final blends
     """
 
     __tablename__ = 'consonants'
@@ -99,7 +99,7 @@ class Consonant(db.Model):
     chars = db.Column(db.String(3), nullable=False)
     complex_c = db.Column(db.Boolean, nullable=False)
     location = db.Column(db.Integer) # None = N/A, 0 = beginning, 1 = end
-    blend = db.Column(db.Boolean, nullable=False) 
+    blend = db.Column(db.Boolean, nullable=False)
     blocker = db.Column(db.Boolean, nullable=False)
     level = db.Column(db.Integer)
 
@@ -121,14 +121,14 @@ class Affix(db.Model):
 
 
 class Student_Vowels(db.Model):
-    
+
     __tablename__ = 'student_vowels'
 
-    student_id = db.Column(db.Integer, 
-                       db.ForeignKey('students.id'), 
+    student_id = db.Column(db.Integer,
+                       db.ForeignKey('students.id'),
                        primary_key=True
                        )
-    vowel_id = db.Column(db.Integer, 
+    vowel_id = db.Column(db.Integer,
                           db.ForeignKey('vowels.id'),
                           primary_key=True
                           )
@@ -140,14 +140,14 @@ class Student_Vowels(db.Model):
 
 
 class Student_Consonants(db.Model):
-    
+
     __tablename__ = 'student_consonants'
 
-    student_id = db.Column(db.Integer, 
-                       db.ForeignKey('students.id'), 
+    student_id = db.Column(db.Integer,
+                       db.ForeignKey('students.id'),
                        primary_key=True
                        )
-    cons_id = db.Column(db.Integer, 
+    cons_id = db.Column(db.Integer,
                           db.ForeignKey('consonants.id'),
                           primary_key=True
                           )
@@ -159,14 +159,14 @@ class Student_Consonants(db.Model):
 
 
 class Student_Affixes(db.Model):
-    
+
     __tablename__ = 'student_affixes'
 
-    student_id = db.Column(db.Integer, 
-                       db.ForeignKey('students.id'), 
+    student_id = db.Column(db.Integer,
+                       db.ForeignKey('students.id'),
                        primary_key=True
                        )
-    affix_id = db.Column(db.Integer, 
+    affix_id = db.Column(db.Integer,
                           db.ForeignKey('affixes.id'),
                           primary_key=True
                           )
@@ -179,12 +179,12 @@ class Student_Affixes(db.Model):
 
 """
 Attempted consonant sequence
-1. no-blends or hardsoft, 
-2. blends+location=1 
-3. blends+location=2 
-4. no-blends+hardsoft+location=2 
+1. no-blends or hardsoft,
+2. blends+location=1
+3. blends+location=2
+4. no-blends+hardsoft+location=2
 5. blends=1
-6. one blend 
+6. one blend
 7. all
 """
 
