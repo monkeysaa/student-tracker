@@ -5,6 +5,7 @@ from models.model import connect_to_db, db
 from models.vowel_model import Vowel
 from models.consonant_model import Consonant
 from models.student_model import Student
+from models.affix_model import Affix
 
 
 ##############################
