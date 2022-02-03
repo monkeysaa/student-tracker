@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}All Consonants{% endblock %}
+
+{% block body %}
+  <h1>All Consonants</h1>
+
+  <ul>
+    {% for con in consonants %}
+      <li>
+          {{ con.chars }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

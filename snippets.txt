@@ -1,0 +1,34 @@
+Class: Word Generator
+    Takes in options
+    What level: CVC, Final E, etc
+    Implement 
+    Returns word at the end
+
+service class encapsulates logic for an action
+generate calls sub-functions. other python files only interact with generate method
+rules engine goes in here
+private methods? 
+
+
+
+
+# def get_letter_subset(letter_type, **kwargs): 
+#     """Get letter with given characteristics."""
+# 
+#   if letter_type == 'vowel':
+#   for key, value in kwargs.items():
+#     getattr(vowel, key, value)
+#
+#       return Vowel.query.filter(Vowel.chars.like(chars)).first()
+
+get_letter_subset(
+    letter_type is vowel or consonant
+    kwargs would include a key (rule to sort) and a value or values (could be int, str, bool)
+    alt: pass an object that has fields for this
+        key: 'level', value: 2
+
+
+
+Build a separate Class for this - a rules engine. 
+DON'T DO: Every rule is its own class and you can dynamically follow?
+

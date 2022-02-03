@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}All Vowels{% endblock %}
+
+{% block body %}
+  <h1>All Vowels</h1>
+
+  <ul>
+    {% for v in vowels %}
+      <li>
+          {{ v.chars }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

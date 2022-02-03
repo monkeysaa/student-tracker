@@ -98,18 +98,12 @@ def get_vowel(chars):
 def get_all_vowels():
     """Return full list of vowel-objects."""
     
-    return Student.query.all()
+    return Vowel.query.all()
 
-def update_vowel(chars, **kwargs): 
-    """Update a user's information."""
-
-    vowel = get_vowel(chars)
-    for key, value in kwargs.items():
-        setattr(vowel, key, value)
-
-    db.session.commit()
-
-    return student
+def get_vowels_by_level(level):
+    """Return partial list of vowel-objects."""
+    
+    return Vowel.query.filter(Vowel.level==level).all()
 
 
 ##############################
@@ -164,17 +158,11 @@ def get_all_consonants():
     
     return Consonant.query.all()
 
+def get_consonants_by_location(loc):
+    """Return partial list of consonant-objects."""
+    
+    return Consonant.query.filter(Consonant.location==loc).all()
 
-def update_vowel(chars, **kwargs):
-    """Update a user's information."""
-
-    vowel = get_vowel(chars)
-    for key, value in kwargs.items():
-        setattr(vowel, key, value)
-
-    db.session.commit()
-
-    return vowel
 
 
 ##############################
@@ -201,19 +189,8 @@ def get_affix(affix):
 def get_all_affixes():
     """Return full list of affix-objects."""
     
-    return Consonant.query.all()
+    return Affix.query.all()
 
-
-def update_vowel(chars, **kwargs): 
-    """Update a user's information."""
-
-    vowel = get_vowel(chars)
-    for key, value in kwargs.items():
-        setattr(vowel, key, value)
-
-    db.session.commit()
-
-    return vowel
 
 
 if __name__ == '__main__':
