@@ -7,9 +7,13 @@ progress, and to create pseudoword sets catered to their reading levels.
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+# from server import app
+from flask_migrate import Migrate
 
-app = Flask(__name__)
+
+app = Flask(__name__, template_folder='/home/vagrant/src/pseudowords/templates')
 db = SQLAlchemy()
+migrate = Migrate(app, db)
 
 # located below db definition, since models require db to exist already
 from models.vowel_model import Vowel

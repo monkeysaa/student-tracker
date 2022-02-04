@@ -3,12 +3,12 @@
 
 from crud_files import crud, vowel_crud, affix_crud, consonant_crud, student_crud
 from flask import Flask, render_template, request, session, redirect, jsonify
-from models.model import connect_to_db
+from models.model import connect_to_db, app
 import pprint
 import random
 from services import word_gen
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 
 @app.route('/')

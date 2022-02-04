@@ -1,13 +1,11 @@
-{% extends 'base.html' %}
-{% block title %}Pseudowords Home{% endblock %}
+{% extends 'base.html' %} {% block title %}Pseudowords Home{% endblock %} {%
+block body %}
+<h1>Welcome!</h1>
 
-{% block body %}
-  <h1>Welcome!</h1>
-
-  <h2>Navigation</h2>
-  <ul>
-    <li><a href="/vowels">View all vowels</a></li>
-    <li><a href="/consonants">View all consonants</a></li>
-  </ul>
-  <p><b> {{word}} </b></p>
+<h2>Navigation</h2>
+<ul>
+  <li><a href="/vowels">View all vowels</a></li>
+  <li><a href="/consonants">View all consonants</a></li>
+</ul>
+<p><b> {{word}} </b></p>
 {% endblock %}
