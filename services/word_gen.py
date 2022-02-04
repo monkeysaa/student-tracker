@@ -5,7 +5,7 @@
 #     Returns word at the end
 
 # service class encapsulates logic for an action
-from crud_files import crud
+from crud_files import crud, vowel_crud, affix_crud, consonant_crud, student_crud
 import random
 
 class Word_Generator():
@@ -37,17 +37,33 @@ class Word_Generator():
         4 = final blends
     """
 
+    # assign instance variables to cons_level etc
+
     def __init__(self, cons_level, vowel_level, word_level):
 
-        # Default = CVC
+        self.cons_level = cons_level or 0
+        self.vowel_level = vowel_level or 0
+        self.word_level = word_level or 0
+
+    #TODO: Once by_levels are working, set cons_level default to highest, and then delete this function
+    def generate_random(self):
+
         vowels = vowel_crud.get_all_vowels()
         consonants = consonant_crud.get_all_consonants()
 
         vowel = random.choice(vowels).chars
         beg_cons = random.choice(consonant_crud.get_consonants_by_location(0))
-        end_cons = random.choice(consonant_crud.get_consonants_by_location(1))
+        end_cons = random.choice(consonant_crud.get_consonants_by_location(None))
 
         word = "" + beg_cons.chars + vowel + end_cons.chars
+
+        return word
+
+    def generate_catered_word(self):
+
+        #TODO: Create get_all_vowels_by_level and get_all_consonants_by_level in CRUD
+        vowels = vowel_crud.get_all_vowels_by_level()
+        consonants = consonant_crud.get_all_consonants_by_level()
 
     def __repr__(self):
         return f"{self.word}"

@@ -29,6 +29,7 @@ from models.consonant_model import Consonant
 from models.affix_model import Affix
 
 
+# Association tables allow granular level, e.g. These levels, but ignore Z
 class Student_Vowels(db.Model):
 
     __tablename__ = 'student_vowels'

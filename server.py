@@ -15,15 +15,18 @@ from services import word_gen
 def homepage():
     """Show homepage."""
 
-    vowels = vowel_crud.get_all_vowels()
-    consonants = consonant_crud.get_all_consonants()
+    word_generator = word_gen.Word_Generator(None, None, None)
+    word = word_generator.generate_random()
 
-    vowel = random.choice(vowels).chars
-    beg_cons = random.choice(consonant_crud.get_consonants_by_location(0))
-    end_cons = random.choice(consonant_crud.get_consonants_by_location(None))
+    # vowels = vowel_crud.get_all_vowels()
+    # consonants = consonant_crud.get_all_consonants()
 
-    word = "" + beg_cons.chars + vowel + end_cons.chars
-    # print(word)
+    # vowel = random.choice(vowels).chars
+    # beg_cons = random.choice(consonant_crud.get_consonants_by_location(0))
+    # end_cons = random.choice(consonant_crud.get_consonants_by_location(None))
+
+    # word = "" + beg_cons.chars + vowel + end_cons.chars
+    # print(f'from server.py: ', word)
 
     return render_template('homepage.html', word=word)
 
