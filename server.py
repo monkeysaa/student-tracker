@@ -3,7 +3,7 @@
 
 from crud_files import crud, vowel_crud, affix_crud, consonant_crud, student_crud
 from flask import Flask, render_template, request, session, redirect, jsonify
-from models.model import connect_to_db, app
+from models.model import app
 import pprint
 import random
 from services import word_gen
@@ -48,5 +48,5 @@ def all_cons():
 
 
 if __name__ == '__main__':
-    connect_to_db(app)
+    # connect_to_db(app)
     app.run(host='0.0.0.0', debug=True)

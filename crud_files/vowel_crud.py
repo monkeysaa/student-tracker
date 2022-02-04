@@ -2,7 +2,7 @@
 """Vowel CRUD operations."""
 
 
-from models.model import db, connect_to_db
+from models.model import db
 from models.vowel_model import Vowel
 
 ##############################

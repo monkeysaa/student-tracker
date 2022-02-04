@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 """Student CRUD operations."""
 
-from models.model import db, connect_to_db
+from models.model import db
 from models.student_model import Student
 
 

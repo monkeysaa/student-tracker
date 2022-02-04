@@ -12,7 +12,14 @@ from flask_migrate import Migrate
 
 
 app = Flask(__name__, template_folder='/home/vagrant/src/pseudowords/templates')
-db = SQLAlchemy()
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///student-tracker'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+db.app = app
+db.init_app(app)
+
+print('Connected to the db!')
+
 migrate = Migrate(app, db)
 
 # located below db definition, since models require db to exist already
@@ -89,24 +96,3 @@ Attempted consonant sequence
 6. one blend
 7. all
 """
-
-
-def connect_to_db(app, db_uri='postgresql:///student-tracker'):
-    """Connect the database to our Flask app."""
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    db.app = app
-    db.init_app(app)
-
-    print('Connected to the db!')
-
-
-if __name__ == '__main__':
-    from server import app
-
-    # Call connect_to_db(app, echo=False) if your program output gets
-    # too annoying; this will tell SQLAlchemy not to print out every
-    # query it executes.
-
-    connect_to_db(app, 'postgresql:///student-tracker')

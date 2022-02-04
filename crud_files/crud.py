@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 """CRUD operations."""
 
-from models.model import connect_to_db, db
+from models.model import db
 from models.vowel_model import Vowel
 from models.consonant_model import Consonant
 from models.student_model import Student
@@ -197,7 +197,3 @@ from models.affix_model import Affix
 #     return Affix.query.all()
 
 
-
-if __name__ == '__main__':
-    from server import app
-    connect_to_db(app)
